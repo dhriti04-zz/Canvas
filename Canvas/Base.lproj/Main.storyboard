@@ -28,6 +28,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="WeU-qn-goc" appends="YES" id="km8-My-ihc"/>
+                                            <outletCollection property="gestureRecognizers" destination="Pjv-fl-LFC" appends="YES" id="FVb-69-Bev"/>
                                         </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="Ev1-Ea-0I8">
@@ -36,6 +37,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="3jG-BN-StM" appends="YES" id="n7C-D0-Qq3"/>
+                                            <outletCollection property="gestureRecognizers" destination="2e8-WK-KSg" appends="YES" id="LWB-nZ-uGc"/>
                                         </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="epz-ge-i2m">
@@ -44,6 +46,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="WFB-f6-SJc" appends="YES" id="9ga-sx-2dp"/>
+                                            <outletCollection property="gestureRecognizers" destination="oiJ-f7-L7w" appends="YES" id="SGX-FV-M4l"/>
                                         </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-To-VDW">
@@ -52,6 +55,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="8dd-tr-wkT" appends="YES" id="9d8-AT-jMA"/>
+                                            <outletCollection property="gestureRecognizers" destination="L6F-rs-lfd" appends="YES" id="mks-xy-daL"/>
                                         </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="hCz-YT-rVY">
@@ -60,6 +64,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Dc2-OS-xhI" appends="YES" id="cac-5A-aix"/>
+                                            <outletCollection property="gestureRecognizers" destination="lS8-sR-Hrd" appends="YES" id="1O3-fH-2ps"/>
                                         </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-fb-Lcd">
@@ -68,6 +73,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="yus-cL-ru7" appends="YES" id="kiI-Jl-Pii"/>
+                                            <outletCollection property="gestureRecognizers" destination="uZw-Mq-5a5" appends="YES" id="ID4-w9-GX6"/>
                                         </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-vM-Jab">
@@ -125,6 +131,42 @@
                         <action selector="didPanFace:" destination="BYZ-38-t0r" id="uMv-4l-kOD"/>
                     </connections>
                 </panGestureRecognizer>
+                <rotationGestureRecognizer id="Pjv-fl-LFC"/>
+                <rotationGestureRecognizer id="L6F-rs-lfd"/>
+                <rotationGestureRecognizer id="2e8-WK-KSg"/>
+                <rotationGestureRecognizer id="lS8-sR-Hrd"/>
+                <rotationGestureRecognizer id="oiJ-f7-L7w"/>
+                <rotationGestureRecognizer id="uZw-Mq-5a5"/>
+                <pinchGestureRecognizer id="A3e-hh-f6N">
+                    <connections>
+                        <action selector="didPinch:" destination="BYZ-38-t0r" id="wDa-md-Zae"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="Dnb-F0-OAp">
+                    <connections>
+                        <action selector="didPinch:" destination="BYZ-38-t0r" id="1PO-Ol-21p"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="byK-Uk-2BG">
+                    <connections>
+                        <action selector="didPinch:" destination="BYZ-38-t0r" id="GAD-oz-XgW"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="U1D-y9-RlI">
+                    <connections>
+                        <action selector="didPinch:" destination="BYZ-38-t0r" id="1zc-cI-QoB"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="axd-Of-SqE">
+                    <connections>
+                        <action selector="didPinch:" destination="BYZ-38-t0r" id="td1-Fv-H8s"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="hIM-4h-rHr">
+                    <connections>
+                        <action selector="didPinch:" destination="BYZ-38-t0r" id="Ddh-rC-pZY"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="133.5832083958021"/>
         </scene>

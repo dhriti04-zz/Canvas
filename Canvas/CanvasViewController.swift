@@ -8,14 +8,14 @@
 
 import UIKit
 
-class CanvasViewController: UIViewController {
+class CanvasViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
     var trayDown: CGPoint!
     var newlyCreatedFace: UIImageView!
     var newlyCreatedFaceOriginalCenter: CGPoint!
-
+    
     @IBOutlet weak var trayView: UIView!
     var trayOriginalCenter: CGPoint!
     
@@ -54,9 +54,13 @@ class CanvasViewController: UIViewController {
         } else if sender.state == .ended {
             print("Gesture ended")
             if (velocity.y > 0){
-                UIView.animate(withDuration: 0.4) {
-                    self.trayView.center = self.trayDown
-                }
+//                UIView.animate(withDuration: 0.4) {
+//                    self.trayView.center = self.trayDown
+                    UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                                   animations: { () -> Void in
+                                    self.trayView.center = self.trayDown
+                    }, completion: nil)
+//                }
             } else {
                 UIView.animate(withDuration: 0.4) {
                     self.trayView.center = self.trayUp
@@ -80,10 +84,14 @@ class CanvasViewController: UIViewController {
             
             // Here we use the method didPan(sender:), which we defined in the previous step, as the action.
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(faces(sender:)))
-            
-            // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+            let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(sender:)))
+            let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(sender:)))
+           
+            newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             newlyCreatedFace.isUserInteractionEnabled = true
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+            newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
+            newlyCreatedFace.addGestureRecognizer(rotateGestureRecognizer)
             
             
         } else if sender.state == .changed {
@@ -112,6 +120,61 @@ class CanvasViewController: UIViewController {
         }
         
     }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    @objc func didPinch(sender: UIPinchGestureRecognizer) {
+        
+        if sender.state == .began {
+            print("pinching")
+            
+            let scale = sender.scale
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFace.transform = (newlyCreatedFace.transform.scaledBy(x:scale, y: scale))
+            sender.scale = 1
+            
+        } else if sender.state == .changed {
+            print("pinching")
+            let scale = sender.scale
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFace.transform = (newlyCreatedFace.transform.scaledBy(x:scale, y: scale))
+            sender.scale = 1
+            
+        } else if sender.state == .ended {
+            print("Gesture ended")
+        }
+        
+    }
+    
+    @objc func didRotate(sender: UIRotationGestureRecognizer) {
+        
+        if sender.state == .began {
+            print("rotating")
+            
+            let rotation = sender.rotation
+        
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFace.transform = (newlyCreatedFace.transform.rotated(by: rotation))
+            sender.rotation = 0
+            
+        } else if sender.state == .changed {
+            print("rotating")
+            
+            let rotation = sender.rotation
+            
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFace.transform = (newlyCreatedFace.transform.rotated(by: rotation))
+            sender.rotation = 0
+            
+        } else if sender.state == .ended {
+            print("Gesture ended")
+        }
+        
+    }
+    
+
     
     
     
